@@ -1,6 +1,26 @@
-# robot-kinematics
+# robot_kinematics
 
-This package helps us to calculate the forward kinematic of a robot. 
-There are several advantages of using the package over RobotToolkit package: 1- The kinematic chain of the robot is defined inside the code, which means that we don't need to change any .xml file. Second, the Jacobian matrix for the rotation matrix can be calculated.
+This package generates a class-structure of the kinematic chain of any robot arm given its DH (Denavit-Hartenberg) parameters. With this structure you can compute the following:
+- Forward kinematics
+- Jacobian
 
-There are two examples in the packages, one of them might not work properly. Furthermore, another example is "inverse-kinematics-examples" package, which works perfectly. 
+The class is implemented in both `c++` and `python`, can be used in real-time. We provide usage examples with: (i) thea 7-DOF arm of an iCub humanoid robot, (ii) a 7-DOF Kuka LWR-4+, (iii) a 6-DOF Kuka LWR-4+ and (iv) the 6-DOF M**** C***.
+
+- **Note:** The code in this package was forkef from [robot-kinematics](https://github.com/epfl-lasa/robot-kinematics) and [Robot-kinematic](https://github.com/epfl-lasa/Robot-kinematic)
+
+---
+## System Requirements
+...
+
+
+## Installation, Dependencies and Compilation
+...
+
+
+
+---
+## Usage
+
+
+---
+## Contact
