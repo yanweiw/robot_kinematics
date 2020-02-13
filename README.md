@@ -28,9 +28,12 @@ The class is implemented in both `c++` and `python`, can be used in real-time. W
 
 ---
 ## Usage
+### robot_kinematics_cpp
 ............
 ............
-
+### robot_kinematics_python
+............
+............
 
 ---
 ## Contact
