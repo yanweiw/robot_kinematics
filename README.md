@@ -10,7 +10,7 @@ The class is implemented in both `c++` and `python`, can be used in real-time. W
  * a 6-DOF UR10 robot arm 
  * a 6-DOF Mistibishi robot arm (model ...)
 
-**Note:** The code in this package was forked from [robot-kinematics](https://github.com/epfl-lasa/robot-kinematics) and [Robot-kinematic](https://github.com/epfl-lasa/Robot-kinematic)
+**Note:** The code in this package has been adapted from [robot-kinematics](https://github.com/epfl-lasa/robot-kinematics) and [Robot-kinematic](https://github.com/epfl-lasa/Robot-kinematic).
 
 **References** Refer to this [IKsurvey](https://www.math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf) for a background on the computations above. DH parameters specific to the UR arms are taken from this [technical report](https://smartech.gatech.edu/bitstream/handle/1853/50782/ur_kin_tech_report_1.pdf). Specific code for the UR arm is adapted from this [repo](https://github.com/mc-capolei/python-Universal-robot-kinematics).
 
