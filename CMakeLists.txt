@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(skinematics)
+project(robot_kinematics)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
+catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -79,8 +79,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES skinematics
+  INCLUDE_DIRS robot_kinematics_cpp/include
+  LIBRARIES robot_kinematics
   CATKIN_DEPENDS mathlib
 #  DEPENDS system_lib
 )
@@ -92,27 +92,18 @@ catkin_package(
 
 
 ## Specify additional locations of header files
-## Your package locations should be listed before other locations
-# include_directories(include)
-include_directories(include
-                    ${catkin_INCLUDE_DIRS}
-)
+include_directories(robot_kinematics_cpp/include ${catkin_INCLUDE_DIRS})
 
-
-FILE(GLOB theSourceFiles src/math_lib.cpp src/sKinematics.cpp)
-FILE(GLOB theHeaderFiles include/math_lib.h include/sKinematics.h)
+FILE(GLOB theSourceFiles robot_kinematics_cpp/src/math_lib.cpp robot_kinematics_cpp/src/sKinematics.cpp)
+FILE(GLOB theHeaderFiles robot_kinematics_cpp/include/math_lib.h robot_kinematics_cpp/include/sKinematics.h)
 
 ## Declare a cpp library
 add_library(${PROJECT_NAME} ${theSourceFiles} ${theHeaderFiles} )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 ## Declare a cpp executable
-add_executable(iktestkuka src/iktestkuka.cpp)
-target_link_libraries(iktestkuka ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-
-add_executable(iktest src/iktestiCub.cpp)
-target_link_libraries(iktest ${PROJECT_NAME} ${catkin_LIBRARIES})
+add_executable(iktest_kuka robot_kinematics_cpp/src/iktestkuka.cpp)
+target_link_libraries(iktest_kuka ${PROJECT_NAME} ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
@@ -138,14 +129,14 @@ target_link_libraries(iktest ${PROJECT_NAME} ${catkin_LIBRARIES})
 # )
 
 ## Mark executables and/or libraries for installation
- install(TARGETS skinematics 
+ install(TARGETS robot_kinematics 
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
 ## Mark cpp header files for installation
- install(DIRECTORY include/
+ install(DIRECTORY robot_kinematics_cpp/include/
    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
    FILES_MATCHING PATTERN "*.h"
    PATTERN ".svn" EXCLUDE
