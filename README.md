@@ -16,15 +16,34 @@ The class is implemented in both `c++` and `python`, can be used in real-time. W
 
 ---
 ## System Requirements
-............
-............
-
+* This code was written for ROS Indigo in Ubuntu 14.04.
+* It may work out-of-the-box on ROS Indigo in Ubuntu 16.04, needs to be tested
 
 ## Installation, Dependencies and Compilation
-............
-............
-
-
+Do the following steps:
+* In your catkin src directory clone the repository
+```
+$ git clone https://github.com/nbfigueroa/robot_kinematics.git
+```
+* wstool gets all other git repository dependencies, after the following steps you should see extra catkin 
+  packages in your src directory.
+```
+$  wstool init
+$  wstool merge robot_kinematics/dependencies.rosinstall 
+$  wstool up 
+```
+* Query and installs all libraries and packages 
+```
+$ rosdep install --from-paths . --ignore-src --rosdistro indigo 
+```
+* Finally complie
+  ```bash
+  $ cd ~/catkin_ws
+  $ catkin_make
+  $ source devel/setup.bash
+  $ catkin_make
+  ```
+  You might need the source the `./bashrc` file and compile again if the first compliation could not find some of the in-house dependencies. If `roscd` doesn't find the compiled packages run `rospack profile`.
 
 ---
 ## Usage
