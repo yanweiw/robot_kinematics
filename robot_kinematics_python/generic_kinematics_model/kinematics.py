@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
+from __future__ import print_function
 import numpy as np
 import math
-from robot_kinematic_python.Structure import DH, Pos
+from structures import DH, Pos
 
-
-class Kinematic():
+class Kinematics():
     def __init__(self, Number_of_joint):
         self._total_links = Number_of_joint
         self._sDH = []
@@ -52,6 +52,8 @@ class Kinematic():
         for i in range(4):
             for j in range(4):
                 self._T0[i, j] = T[i, j]
+
+        print('\nBase Frame:\n {}'.format(self._T0))
 
     # ******************************************************************
     #  * Set End frame
@@ -114,7 +116,7 @@ class Kinematic():
                     self._sDH[ai].theta = ang[i, 0]
         else:
             for ai in range(self._dof):
-                self._sDH[ai].theta = ang[ai, 0]
+                self._sDH[ai].theta = ang[ai, 0]   
         self._calFwd()
 
     # ******************************************************************
@@ -139,17 +141,20 @@ class Kinematic():
             self._sDH[link_index].H[1, 1] = c_theta*c_alpha
             self._sDH[link_index].H[1, 2] = -c_theta*s_alpha
             self._sDH[link_index].H[1, 3] = s_theta*self._sDH[link_index].a
-        self._sDH[0].H0i = np.dot(self._T0, self._sDH[0].H)
+        
+        self._sDH[0].H0i = np.dot(self._T0,self._sDH[0].H)
         for i in range(1, self._dof):
             self._sDH[i].H0i = np.dot(self._sDH[i-1].H0i, self._sDH[i].H)
 
         self._H0F = np.dot(self._sDH[self._total_links-1].H0i, self._TF)
+        # self._H0F = self._sDH[self._total_links-1].H0i
 
     # ******************************************************************
     #  *  Get Joint position
     #  *****************************************************************
     def getJoints(self):
-        ang = np.zeros((self._dof), 1)
+        # ang = np.zeros((self._dof), 1)
+        ang = np.zeros((self._dof, 1))
         for ai in range(self._dof):
             ang[ai] = self._sDH[self._active_index[ai]].theta
         return ang

@@ -102,7 +102,7 @@ add_library(${PROJECT_NAME} ${theSourceFiles} ${theHeaderFiles} )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 ## Declare a cpp executable
-add_executable(iktest_kuka robot_kinematics_cpp/src/iktestkuka.cpp)
+add_executable(iktest_kuka robot_kinematics_cpp/iktestkuka.cpp)
 target_link_libraries(iktest_kuka ${PROJECT_NAME} ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable/library
