@@ -43,7 +43,7 @@ $ rosdep install --from-paths . --ignore-src --rosdistro indigo
   $ source devel/setup.bash
   $ catkin_make
   ```
-  You might need the source the `./bashrc` file and compile again if the first compliation could not find some of the in-house dependencies. If `roscd` doesn't find the compiled packages run `rospack profile`.
+  You might need to source the `./bashrc` file and compile again if the first compliation could not find some of the in-house dependencies. If `roscd` doesn't find the compiled packages run `rospack profile`.
 
 ---
 ## Usage
