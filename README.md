@@ -55,4 +55,4 @@ $ rosdep install --from-paths . --ignore-src --rosdistro indigo
 ............
 
 ---
-## Contact
+**Contact**: [Nadia Figueroa](https://nbfigueroa.github.io/) (nadiafig AT mit dot edu)
