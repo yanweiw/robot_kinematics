@@ -102,6 +102,4 @@ if __name__ == '__main__':
     rospy.loginfo('\nCurrent joint position:\n {}'.format(joint_query))
     
     query_ee_pose = ur10_kinematics.getEndTMatrix()
-    # query_ee_pose = ur10_kinematics.getEndPos()
     rospy.loginfo('\nCurrent ee-pose pose:\n {}'.format(query_ee_pose))
-
