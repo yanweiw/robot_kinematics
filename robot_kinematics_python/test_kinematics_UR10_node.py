@@ -1,6 +1,5 @@
 #! /usr/bin/env python
-# from __future__ import print_function
-import rospy, math, sys
+import rospy, math, sys, time
 import numpy as np
 from generic_kinematics_model.kinematics import Kinematics
 
@@ -101,21 +100,34 @@ if __name__ == '__main__':
         # Zero joint position (left side)
         query_joint_pos   = [ 0, -PI, 0, 0, 0, 0]
 
+
+    # To measure how much time it takes to make these computations    
+    t0 = time.time()
+
     # Convert to desired format    
     np_query_joint_pos = np.zeros((ur10_dof, 1))
     for j in range(ur10_dof):
         np_query_joint_pos[j,0] = query_joint_pos[j]
     ur10_kinematics.setJoints(np_query_joint_pos, 1)
-
-    joint_query = ur10_kinematics.getJoints()
-    rospy.loginfo('\nCurrent joint position:\n {}'.format(joint_query))
     
+    # Compute Forward Kinematics    
     query_ee_pose = ur10_kinematics.getEndTMatrix()
     rospy.loginfo('\nCurrent ee-pose pose:\n {}'.format(query_ee_pose))
-
+    
+    # Elapsed time
+    tF = time.time() - t0
+    rospy.loginfo('\nFK Computation time: {}'.format(tF))
 
     # ******************************************************************
     #  *  Compute Jacobian for a Joint State
     #  *****************************************************************
+    # To measure how much time it takes to make these computations    
+    t0 = time.time()
+    
+    # Compute Jacobian
     query_Jacobian = ur10_kinematics.getJacobian()
     rospy.loginfo('\nCurrent Jacobian:\n {}'.format(query_Jacobian))
+    
+    # Elapsed time
+    tF = time.time() - t0
+    rospy.loginfo('\nJacobian Computation time: {}'.format(tF))

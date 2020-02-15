@@ -140,12 +140,12 @@ int main(int argc, char **argv)
 	mSKinematicChain->setJoints(myjob);
 
 	FILE *fout;
-	fout = fopen("/home/seungsu/devel/roscodes/SKinematics/data/out.txt", "w+");
+	fout = fopen("/home/nbfigueroa/data/test.log", "w+");
 
 
 	FILE *flog;
 	char line[1024];
-	flog = fopen("/home/seungsu/devel/roscodes/SKinematics/data/log.txt", "r+");
+	flog = fopen("/home/nbfigueroa/data/test.log", "r+");
 
 	for(int i=0; i<5000; i++)
 	{
