@@ -99,6 +99,7 @@ if __name__ == '__main__':
         # Zero joint position (left side)
         query_joint_pos   = [ 0, -PI, 0, 0, 0, 0]
 
+    # Convert to desired format    
     np_query_joint_pos = np.zeros((ur10_dof, 1))
     for j in range(ur10_dof):
         np_query_joint_pos[j,0] = query_joint_pos[j]
@@ -109,3 +110,9 @@ if __name__ == '__main__':
     
     query_ee_pose = ur10_kinematics.getEndTMatrix()
     rospy.loginfo('\nCurrent ee-pose pose:\n {}'.format(query_ee_pose))
+
+
+    # ******************************************************************
+    #  *  Compute Jacobian for a Joint State
+    #  *****************************************************************
+    query_Jacobian = ur10_kinematics.getEndTMatrix()
