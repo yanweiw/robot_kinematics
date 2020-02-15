@@ -3,7 +3,7 @@
 This package generates a class-structure of the kinematic chain of any robot arm given its DH (Denavit-Hartenberg) parameters. With this structure you can compute the following:
 - Forward Kinematics; i.e. compute end-effector pose (position + orientation) given joint positions
 - Compute Jacobian; i.e. compute the geometric Jacobian of the current joint configuration
-- Inverse Kinematics; i.e. compute joint positions for a desired end-effector pose using Pseudo-Inv.+Nullspace or DLS?
+- Inverse Kinematics; i.e. compute joint positions for a desired end-effector pose using Pseudo-Inv. (SVD w/DLS)
 
 The class is implemented in both `c++` and `python`, can be used in real-time. We provide usage examples with: 
  * a 7-DOF Kuka LWR-4+
@@ -43,7 +43,7 @@ $ rosdep install --from-paths . --ignore-src --rosdistro indigo
   $ source devel/setup.bash
   $ catkin_make
   ```
-  You might need the source the `./bashrc` file and compile again if the first compliation could not find some of the in-house dependencies. If `roscd` doesn't find the compiled packages run `rospack profile`.
+  You might need to source the `./bashrc` file and compile again if the first compliation could not find some of the in-house dependencies. If `roscd` doesn't find the compiled packages run `rospack profile`.
 
 ---
 ## Usage
@@ -55,4 +55,4 @@ $ rosdep install --from-paths . --ignore-src --rosdistro indigo
 ............
 
 ---
-## Contact
+**Contact**: [Nadia Figueroa](https://nbfigueroa.github.io/) (nadiafig AT mit dot edu)
