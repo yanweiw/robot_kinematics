@@ -50,6 +50,8 @@ if __name__ == '__main__':
     # ******************************************************************
     #  * Set Base frame
     #  *****************************************************************    
+
+    # Relative pose between Robbie-base (world) and arm-base
     T_base_rel = np.array([  [-0.0002037,  1.0000000,  0.0000000, 0.33000],
                    [-1.0000000, -0.0002037,  0.0000000, 0.00000],
                    [0.0000000,  0.0000000,  1.0000000,  0.48600],
@@ -115,4 +117,5 @@ if __name__ == '__main__':
     # ******************************************************************
     #  *  Compute Jacobian for a Joint State
     #  *****************************************************************
-    query_Jacobian = ur10_kinematics.getEndTMatrix()
+    query_Jacobian = ur10_kinematics.getJacobian()
+    rospy.loginfo('\nCurrent Jacobian:\n {}'.format(query_Jacobian))
