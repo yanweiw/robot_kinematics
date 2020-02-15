@@ -32,22 +32,15 @@ MathLib::Vector        mJointPos;
 MathLib::Vector        mJointWeights;
 MathLib::Vector        mJointVelocityLimits_dt;
 
-void initiCubKinematics(){
+void initKUKAKinematics(){
 	mSKinematicChain = new sKinematics(KUKA_DOF, _dt);
-	//mSKinematicChain->setDH(0,  0.0,  0.31, M_PI_2, 0.0, 1,  DEG2RAD(-170.), DEG2RAD(170.), DEG2RAD(110.0)*0.77);
 	mSKinematicChain->setDH(0,  0.0,  0.31, M_PI_2, 0.0, 1,  DEG2RAD( -85.), DEG2RAD( 85.), DEG2RAD(132.0)*0.95);
 	mSKinematicChain->setDH(1,  0.0,  0.00,-M_PI_2, 0.0, 1,  DEG2RAD( -90.), DEG2RAD( 90.), DEG2RAD(132.0)*0.95);
-	//mSKinematicChain->setDH(1,  0.0,  0.00,-M_PI_2, 0.0, 1,  DEG2RAD(-120.), DEG2RAD(120.), DEG2RAD(132.0)*0.8);
-	//mSKinematicChain->setDH(2,  0.0,  0.40,-M_PI_2, 0.0, 1,  DEG2RAD(-170.), DEG2RAD(170.), DEG2RAD(128.0)*0.30);
 	mSKinematicChain->setDH(2,  0.0,  0.40,-M_PI_2, 0.0, 1,  DEG2RAD(-100.), DEG2RAD(100.), DEG2RAD(128.0)*0.95);
 	mSKinematicChain->setDH(3,  0.0,  0.00, M_PI_2, 0.0, 1,  DEG2RAD(-120.), DEG2RAD(120.), DEG2RAD(128.0)*0.95);
 	mSKinematicChain->setDH(4,  0.0,  0.39, M_PI_2, 0.0, 1,  DEG2RAD(-140.), DEG2RAD(140.), DEG2RAD(204.0)*0.95);
-	//mSKinematicChain->setDH(5,  0.0,  0.00,-M_PI_2, 0.0, 1,  DEG2RAD(-120.), DEG2RAD(120.), DEG2RAD(132.0));
-	mSKinematicChain->setDH(5,  0.0,  0.00,-M_PI_2, 0.0, 1,  DEG2RAD( -120.), DEG2RAD( 90.), DEG2RAD(180.0)*0.95); // reduced joint angle to save the fingers
-	//mSKinematicChain->setDH(6,  0.0,  0.20,    0.0, 0.0, 1,  DEG2RAD(-170.), DEG2RAD(170.), DEG2RAD(132.0)*0.99);
-	//mSKinematicChain->setDH(6,  0.0,  0.217,    0.0, 0.0, 1,  DEG2RAD(-170.), DEG2RAD(170.), DEG2RAD(184.0)*0.95); // for barrett
-	//mSKinematicChain->setDH(6, -0.06,  0.180,    0.0, 0.0, 1,  DEG2RAD(-170.), DEG2RAD(170.), DEG2RAD(184.0)*0.95); // for sim lab
-	mSKinematicChain->setDH(6, -0.068,  0.210,    0.0, 0.0, 1,  DEG2RAD(-120.), DEG2RAD(120.), DEG2RAD(184.0)*0.95); // for sim lab
+	mSKinematicChain->setDH(5,  0.0,  0.00,-M_PI_2, 0.0, 1,  DEG2RAD( -120.), DEG2RAD( 90.), DEG2RAD(180.0)*0.95);    // reduced joint angle to save the fingers
+	mSKinematicChain->setDH(6, -0.068,  0.210,    0.0, 0.0, 1,  DEG2RAD(-120.), DEG2RAD(120.), DEG2RAD(184.0)*0.95);  // for sim lab (hand)
 
 	// T0 is a transformation matrix from global basement to base coordinate of 0th links
 	// T0 are allocated by Identity matrix default. (if you not call this function T0 = I )
@@ -132,7 +125,7 @@ int main(int argc, char **argv)
 
 	double lVelMux = 50.0;
 
-	initiCubKinematics();
+	initKUKAKinematics();
 
 	// set current joint angle;
 	lJoints.Set(myjob, KUKA_DOF);
