@@ -145,7 +145,7 @@ class Kinematics():
             self._sDH[i].H0i = np.dot(self._sDH[i-1].H0i, self._sDH[i].H)
 
         self._H0F = np.dot(self._sDH[self._total_links-1].H0i, self._TF)
-        self._H0F = self._sDH[self._total_links-1].H0i
+        # self._H0F = self._sDH[self._total_links-1].H0i
 
     # ******************************************************************
     #  *  Get Joint position
