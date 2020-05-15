@@ -47,10 +47,12 @@ $ rosdep install --from-paths . --ignore-src --rosdistro indigo
 
 ---
 ## Usage
-### robot_kinematics_cpp
+
+### Forward Kinematics (robot_kinematics_python)
 ............
 ............
-### robot_kinematics_python
+
+### Inverse (and Forward) Kinematics (robot_kinematics_cpp)
 ............
 ............
 
