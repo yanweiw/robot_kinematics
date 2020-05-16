@@ -1,5 +1,4 @@
-
 - git:
     local-name: mathlib
-    uri: https://github.com/epfl-lasa/mathlib.git
+    uri: git@github.com:nbfigueroa/mathlib.git
  
