@@ -5,7 +5,7 @@ This package generates a class-structure of the kinematic chain of any robot arm
 - Compute Jacobian; i.e. compute the geometric Jacobian of the current joint configuration
 - Inverse Kinematics; i.e. compute joint positions for a desired end-effector pose using Pseudo-Inv. (SVD w/DLS)
 
-The class is implemented in both `c++` and `python`, can be used in real-time. We provide usage examples with: 
+The class is implemented in both `c++` and `python`, can be used in real-time. It has been tested on: 
  * a 7-DOF Kuka LWR-4+
  * a 6-DOF UR10 robot arm 
  * a 6-DOF Mistubishi robot arm (Cobot model)
