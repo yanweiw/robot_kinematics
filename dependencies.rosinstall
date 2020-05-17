@@ -1,4 +1,4 @@
 - git:
-    local-name: mathlib
-    uri: git@github.com:nbfigueroa/mathlib.git
+    local-name: robot_math_tools
+    uri: git@github.com:nbfigueroa/robot_math_tools.git
  
