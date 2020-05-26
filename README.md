@@ -6,9 +6,9 @@ This package generates a class-structure of the kinematic chain of any robot arm
 - Inverse Kinematics; i.e. compute joint positions for a desired end-effector pose using Pseudo-Inv. (SVD w/DLS)
 
 The class is implemented in both `c++` and `python`, can be used in real-time. It has been tested on: 
- * a 7-DOF Kuka LWR-4+
+ * a 7-DOF Kuka LWR-4+ robot arm
  * a 6-DOF UR10 robot arm 
- * a 6-DOF Mistubishi robot arm (Cobot model)
+ * a 6-DOF Mistubishi robot arm (RV5AS Cobot model)
 
 **Note:** The code in this package has been adapted from [robot-kinematics](https://github.com/epfl-lasa/robot-kinematics) and [Robot-kinematic](https://github.com/epfl-lasa/Robot-kinematic).
 
