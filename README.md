@@ -16,7 +16,8 @@ The class is implemented in both `c++` and `python`, can be used in real-time. I
 ---
 ## System Requirements
 * This code was written for ROS Indigo in Ubuntu 14.04.
-* It may work out-of-the-box on ROS Indigo in Ubuntu 16.04, needs to be tested
+* It works out-of-the-box on ROS Kinetic in Ubuntu 16.04
+* ROS Melodic on Ubuntu 18.08 needs to be tested
 
 ## Installation, Dependencies and Compilation
 Do the following steps:
