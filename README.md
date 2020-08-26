@@ -6,9 +6,8 @@ This package generates a class-structure of the kinematic chain of any robot arm
 - Inverse Kinematics; i.e. compute joint positions for a desired end-effector pose using Pseudo-Inv. (SVD w/DLS)
 
 The class is implemented in both `c++` and `python`, can be used in real-time. It has been tested on: 
- * a 7-DOF Kuka LWR-4+
+ * a 7-DOF Kuka LWR-4+ robot arm
  * a 6-DOF UR10 robot arm 
- * a 6-DOF Mistubishi robot arm (Cobot model)
 
 **Note:** The code in this package has been adapted from [robot-kinematics](https://github.com/epfl-lasa/robot-kinematics) and [Robot-kinematic](https://github.com/epfl-lasa/Robot-kinematic).
 
@@ -17,7 +16,8 @@ The class is implemented in both `c++` and `python`, can be used in real-time. I
 ---
 ## System Requirements
 * This code was written for ROS Indigo in Ubuntu 14.04.
-* It may work out-of-the-box on ROS Indigo in Ubuntu 16.04, needs to be tested
+* It works out-of-the-box on ROS Kinetic in Ubuntu 16.04
+* ROS Melodic on Ubuntu 18.08 needs to be tested
 
 ## Installation, Dependencies and Compilation
 Do the following steps:
