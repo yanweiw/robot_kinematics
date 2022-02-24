@@ -2,7 +2,8 @@
 from __future__ import print_function
 import numpy as np
 import math
-from structures import DH, Pos
+# from structures import DH, Pos
+from generic_kinematics_model.structures import DH, Pos
 
 class Kinematics():
     def __init__(self, Number_of_joint):
